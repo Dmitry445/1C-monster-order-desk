@@ -1,0 +1,25 @@
+{
+  "servers": {
+    "filesystem": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-filesystem", "${workspaceFolder}"]
+    },
+    "git": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": ["/c", "uvx", "mcp-server-git", "--repository", "${workspaceFolder}"]
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--headless",
+        "--allowed-origins",
+        "http://localhost:5173;http://localhost:3000"
+      ]
+    }
+  }
+}

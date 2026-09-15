@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-electron/
+dist-electron-build/
+build/
+output-artifacts/
+playwright-report/
+test-results/
+.env
+*.log
+*.pdf
+.DS_Store

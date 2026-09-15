@@ -1,0 +1,210 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install Dependencies",
+      "type": "npm",
+      "script": "install",
+      "problemMatcher": [],
+      "detail": "Установка всех зависимостей проекта"
+    },
+    {
+      "label": "Build Client",
+      "type": "npm",
+      "script": "build:client",
+      "group": "build",
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "detail": "Сборка React frontend"
+    },
+    {
+      "label": "Build Server",
+      "type": "npm",
+      "script": "build:server",
+      "group": "build",
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      },
+      "detail": "Сборка Express backend"
+    },
+    {
+      "label": "Build All",
+      "dependsOn": ["Build Client", "Build Server"],
+      "dependsOrder": "parallel",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "detail": "Полная сборка проекта (клиент и сервер)"
+    },
+    {
+      "label": "Build Electron",
+      "type": "npm",
+      "script": "build:electron",
+      "group": "build",
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "detail": "Полная сборка настольного приложения: клиент, сервер и бандл Electron (main/preload)"
+    },
+    {
+      "label": "Type Check",
+      "type": "npm",
+      "script": "typecheck",
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "detail": "Проверка типов TypeScript"
+    },
+    {
+      "label": "Lint",
+      "type": "npm",
+      "script": "lint",
+      "group": "test",
+      "problemMatcher": ["$eslint-stylish"],
+      "presentation": {
+        "reveal": "always",
+        "revealProblems": "onProblem",
+        "panel": "dedicated"
+      },
+      "detail": "Проверка TypeScript и React через ESLint"
+    },
+    {
+      "label": "Dev: Start All",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "typescript",
+        "fileLocation": "relative",
+        "pattern": {
+          "regexp": "^([^\\s].*):([0-9]+):([0-9]+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*starting.*",
+          "endsPattern": "^.*ready.*"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      },
+      "detail": "Запуск dev-серверов клиента и сервера"
+    },
+    {
+      "label": "Dev: Server Only",
+      "type": "npm",
+      "script": "dev:server",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*starting.*",
+          "endsPattern": "^.*Сервер запущен.*"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "detail": "Запуск только Express backend с hot reload"
+    },
+    {
+      "label": "Dev: Client Only",
+      "type": "npm",
+      "script": "dev:client",
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^.*$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*VITE.*",
+          "endsPattern": "^.*ready.*"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "detail": "Запуск только Vite dev server"
+    },
+    {
+      "label": "Test: OData Connection",
+      "type": "shell",
+      "command": "curl",
+      "args": [
+        "-u",
+        "${env:ODATA_USERNAME}:${env:ODATA_PASSWORD}",
+        "${env:ODATA_BASE_URL}/?$format=json"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "detail": "Проверка подключения к 1С OData"
+    },
+    {
+      "label": "Test: User Scenarios with Screenshots and PDF",
+      "type": "npm",
+      "script": "test:e2e:user-scenarios",
+      "group": "test",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "detail": "Запуск сквозного UI E2E теста браузерной версии (Chromium) с сохранением скриншотов и PDF в output-artifacts/web/"
+    },
+    {
+      "label": "Test: Electron Scenarios with Screenshots and PDF",
+      "type": "npm",
+      "script": "test:e2e:electron",
+      "group": "test",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "detail": "Запуск сквозного UI E2E теста настольного Electron приложения с сохранением скриншотов и PDF в output-artifacts/electron/"
+    },
+    {
+      "label": "Clean",
+      "type": "shell",
+      "command": "rm",
+      "args": ["-rf", "dist", "node_modules/.cache"],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "detail": "Очистка артефактов сборки"
+    }
+  ]
+}

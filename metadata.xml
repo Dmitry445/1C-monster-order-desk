@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="3.0">
+    <Schema Namespace="StandardODATA" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+
+      <EntityType Name="Catalog_Номенклатура_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+        <Property Name="IsFolder" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Артикул" Type="Edm.String" Nullable="false"/>
+        <Property Name="ВидНоменклатуры_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ЕдиницаИзмерения_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Вес" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Объем" Type="Edm.Double" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_Склады_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+        <Property Name="Parent_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="IsFolder" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="ИспользоватьОрдернуюСхемуПриОтгрузке" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="ИспользоватьСерииНоменклатуры" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="ТипСклада" Type="Edm.String" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_Партнеры_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+        <Property Name="IsFolder" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="ЭтоФизическоеЛицо" Type="Edm.Boolean" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_Контрагенты_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+        <Property Name="IsFolder" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="ИНН" Type="Edm.String" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_Пользователи_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+        <Property Name="Недействителен" Type="Edm.Boolean" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_Организации_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_Валюты_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_ВидыНоменклатуры_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_ЕдиницыИзмерения_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Catalog_СтавкиНДС_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Code" Type="Edm.String" Nullable="false"/>
+        <Property Name="Description" Type="Edm.String" Nullable="false"/>
+        <Property Name="Ставка" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Расчетная" Type="Edm.Boolean" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="InformationRegister_ШтрихкодыНоменклатуры_Type">
+        <Key><PropertyRef Name="Штрихкод"/></Key>
+        <Property Name="Штрихкод" Type="Edm.String" Nullable="false"/>
+        <Property Name="Номенклатура_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Характеристика_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Упаковка_Key" Type="Edm.Guid" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="AccumulationRegister_ТоварыНаСкладах_Balance_Type">
+        <Key><PropertyRef Name="Номенклатура_Key"/></Key>
+        <Property Name="Номенклатура_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Характеристика_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Назначение_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Склад_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Помещение_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Серия_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ВНаличииBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="КОтгрузкеBalance" Type="Edm.Double" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="AccumulationRegister_ТоварыКОтгрузке_Balance_Type">
+        <Key><PropertyRef Name="Склад_Key"/></Key>
+        <Property Name="Склад_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Получатель" Type="Edm.String" Nullable="false"/>
+        <Property Name="Получатель_Type" Type="Edm.String" Nullable="false"/>
+        <Property Name="ДокументОтгрузки" Type="Edm.String" Nullable="false"/>
+        <Property Name="ДокументОтгрузки_Type" Type="Edm.String" Nullable="false"/>
+        <Property Name="Номенклатура_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Характеристика_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Назначение_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Серия_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ВРезервеBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="КОтгрузкеBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="КОформлениюBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="КСборкеBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="СобираетсяBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="СобраноBalance" Type="Edm.Double" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="AccumulationRegister_ЗапасыИПотребности_Balance_Type">
+        <Key><PropertyRef Name="Номенклатура_Key"/></Key>
+        <Property Name="Номенклатура_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Характеристика_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Склад" Type="Edm.String" Nullable="false"/>
+        <Property Name="Склад_Type" Type="Edm.String" Nullable="false"/>
+        <Property Name="Назначение_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Заказ" Type="Edm.String" Nullable="false"/>
+        <Property Name="Заказ_Type" Type="Edm.String" Nullable="false"/>
+        <Property Name="ДатаСобытия" Type="Edm.DateTime" Nullable="false"/>
+        <Property Name="ВНаличииBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="ПоступитBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="ЗаказаноBalance" Type="Edm.Double" Nullable="false"/>
+        <Property Name="РезервироватьНаСкладеBalance" Type="Edm.Double" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Document_ЗаказКлиента_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Number" Type="Edm.String" Nullable="false"/>
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false"/>
+        <Property Name="Posted" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Партнер_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Контрагент_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Организация_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Соглашение_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Валюта_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Склад_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Менеджер_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Статус" Type="Edm.String" Nullable="false"/>
+        <Property Name="СуммаДокумента" Type="Edm.Double" Nullable="false"/>
+        <Property Name="ЦенаВключаетНДС" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="НалогообложениеНДС" Type="Edm.String" Nullable="false"/>
+        <Property Name="ХозяйственнаяОперация" Type="Edm.String" Nullable="false"/>
+        <Property Name="ПорядокРасчетов" Type="Edm.String" Nullable="false"/>
+        <Property Name="СпособДоставки" Type="Edm.String" Nullable="false"/>
+        <Property Name="МаксимальныйКодСтроки" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Автор" Type="Edm.String" Nullable="false"/>
+        <Property Name="Автор_Type" Type="Edm.String" Nullable="false"/>
+        <Property Name="Комментарий" Type="Edm.String" Nullable="false"/>
+        <NavigationProperty Name="Товары" Relationship="StandardODATA.Document_ЗаказКлиента_Type_Товары" ToRole="Товары" FromRole="Document_ЗаказКлиента_Type"/>
+      </EntityType>
+
+      <EntityType Name="Document_ЗаказКлиента_Товары_RowType">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="LineNumber" Type="Edm.String" Nullable="false"/>
+        <Property Name="КодСтроки" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Номенклатура_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Характеристика_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Упаковка_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Количество" Type="Edm.Double" Nullable="false"/>
+        <Property Name="КоличествоУпаковок" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Цена" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Сумма" Type="Edm.Double" Nullable="false"/>
+        <Property Name="СтавкаНДС_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="СуммаНДС" Type="Edm.Double" Nullable="false"/>
+        <Property Name="СуммаСНДС" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Склад_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ВариантОбеспечения" Type="Edm.String" Nullable="false"/>
+        <Property Name="Отменено" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="ИдентификаторСтроки" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ЗаказКлиента_Key" Type="Edm.Guid" Nullable="false"/>
+      </EntityType>
+
+      <EntityType Name="Document_РеализацияТоваровУслуг_Type">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="DataVersion" Type="Edm.String" Nullable="false"/>
+        <Property Name="DeletionMark" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Number" Type="Edm.String" Nullable="false"/>
+        <Property Name="Date" Type="Edm.DateTime" Nullable="false"/>
+        <Property Name="Posted" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="ЗаказКлиента_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Партнер_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Контрагент_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Организация_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Валюта_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Склад_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Менеджер_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Ответственный_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ЦенаВключаетНДС" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="НалогообложениеНДС" Type="Edm.String" Nullable="false"/>
+        <Property Name="ХозяйственнаяОперация" Type="Edm.String" Nullable="false"/>
+        <Property Name="Согласован" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="Комментарий" Type="Edm.String" Nullable="false"/>
+        <NavigationProperty Name="Товары" Relationship="StandardODATA.Document_РеализацияТоваровУслуг_Type_Товары" ToRole="Товары" FromRole="Document_РеализацияТоваровУслуг_Type"/>
+      </EntityType>
+
+      <EntityType Name="Document_РеализацияТоваровУслуг_Товары_RowType">
+        <Key><PropertyRef Name="Ref_Key"/></Key>
+        <Property Name="Ref_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="LineNumber" Type="Edm.String" Nullable="false"/>
+        <Property Name="КодСтроки" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Номенклатура_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Характеристика_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Упаковка_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="Количество" Type="Edm.Double" Nullable="false"/>
+        <Property Name="КоличествоУпаковок" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Цена" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Сумма" Type="Edm.Double" Nullable="false"/>
+        <Property Name="СтавкаНДС_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="СуммаНДС" Type="Edm.Double" Nullable="false"/>
+        <Property Name="СуммаСНДС" Type="Edm.Double" Nullable="false"/>
+        <Property Name="Склад_Key" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ВариантОбеспечения" Type="Edm.String" Nullable="false"/>
+        <Property Name="Отменено" Type="Edm.Boolean" Nullable="false"/>
+        <Property Name="ИдентификаторСтроки" Type="Edm.Guid" Nullable="false"/>
+        <Property Name="ЗаказКлиента_Key" Type="Edm.Guid" Nullable="false"/>
+      </EntityType>
+      <EntityContainer Name="StandardODATA" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Catalog_Номенклатура" EntityType="StandardODATA.Catalog_Номенклатура_Type"/>
+        <EntitySet Name="Catalog_Склады" EntityType="StandardODATA.Catalog_Склады_Type"/>
+        <EntitySet Name="Catalog_Партнеры" EntityType="StandardODATA.Catalog_Партнеры_Type"/>
+        <EntitySet Name="Catalog_Контрагенты" EntityType="StandardODATA.Catalog_Контрагенты_Type"/>
+        <EntitySet Name="Catalog_Пользователи" EntityType="StandardODATA.Catalog_Пользователи_Type"/>
+        <EntitySet Name="Catalog_Организации" EntityType="StandardODATA.Catalog_Организации_Type"/>
+        <EntitySet Name="Catalog_Валюты" EntityType="StandardODATA.Catalog_Валюты_Type"/>
+        <EntitySet Name="Catalog_ВидыНоменклатуры" EntityType="StandardODATA.Catalog_ВидыНоменклатуры_Type"/>
+        <EntitySet Name="Catalog_ЕдиницыИзмерения" EntityType="StandardODATA.Catalog_ЕдиницыИзмерения_Type"/>
+        <EntitySet Name="Catalog_СтавкиНДС" EntityType="StandardODATA.Catalog_СтавкиНДС_Type"/>
+        <EntitySet Name="InformationRegister_ШтрихкодыНоменклатуры" EntityType="StandardODATA.InformationRegister_ШтрихкодыНоменклатуры_Type"/>
+        <EntitySet Name="AccumulationRegister_ТоварыНаСкладах_Balance" EntityType="StandardODATA.AccumulationRegister_ТоварыНаСкладах_Balance_Type"/>
+        <EntitySet Name="AccumulationRegister_ТоварыКОтгрузке_Balance" EntityType="StandardODATA.AccumulationRegister_ТоварыКОтгрузке_Balance_Type"/>
+        <EntitySet Name="AccumulationRegister_ЗапасыИПотребности_Balance" EntityType="StandardODATA.AccumulationRegister_ЗапасыИПотребности_Balance_Type"/>
+        <EntitySet Name="Document_ЗаказКлиента" EntityType="StandardODATA.Document_ЗаказКлиента_Type"/>
+        <EntitySet Name="Document_ЗаказКлиента_Товары" EntityType="StandardODATA.Document_ЗаказКлиента_Товары_RowType"/>
+        <EntitySet Name="Document_РеализацияТоваровУслуг" EntityType="StandardODATA.Document_РеализацияТоваровУслуг_Type"/>
+        <EntitySet Name="Document_РеализацияТоваровУслуг_Товары" EntityType="StandardODATA.Document_РеализацияТоваровУслуг_Товары_RowType"/>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

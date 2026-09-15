@@ -1,0 +1,60 @@
+{
+  "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
+  "appId": "com.monsterorderdesk.app",
+  "productName": "Monster Order Desk",
+  "artifactName": "Monster-Order-Desk-${version}-${arch}.${ext}",
+  "directories": {
+    "output": "dist-electron-build",
+    "buildResources": "build"
+  },
+  "icon": "build/icon.ico",
+  "files": [
+    "dist/**/*",
+    "dist-electron/**/*",
+    "package.json",
+    "node_modules/**/*",
+    "!node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+    "!node_modules/*/{test,__tests__,tests,powertest,example,examples}",
+    "!node_modules/*.d.ts",
+    "!node_modules/.bin"
+  ],
+  "extraResources": [
+    {
+      "from": "metadata.xml",
+      "to": "metadata.xml"
+    },
+    {
+      "from": "build/windows/README.txt",
+      "to": "README.txt"
+    }
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      },
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ]
+  },
+  "nsis": {
+    "artifactName": "Monster-Order-Desk-${version}-${arch}-setup.${ext}",
+    "oneClick": false,
+    "perMachine": false,
+    "allowElevation": true,
+    "language": 1049,
+    "displayLanguageSelector": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Monster Order Desk",
+    "installerIcon": "build/icon.ico",
+    "uninstallerIcon": "build/icon.ico"
+  },
+  "portable": {
+    "artifactName": "Monster-Order-Desk-${version}-${arch}-portable.${ext}"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@modelcontextprotocol/server-filesystem", "${workspaceFolder}"]
+    },
+    "git": {
+      "command": "cmd",
+      "args": ["/c", "uvx", "mcp-server-git", "--repository", "${workspaceFolder}"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--headless",
+        "--allowed-origins",
+        "http://localhost:5173;http://localhost:3000"
+      ]
+    }
+  }
+}

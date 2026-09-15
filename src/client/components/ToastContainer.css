@@ -1,0 +1,119 @@
+.toast-container {
+  position: fixed;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  max-width: 400px;
+}
+
+@media (max-width: 768px) {
+  .toast-container {
+    bottom: var(--spacing-md);
+    top: auto;
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+    max-width: none;
+  }
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  animation: slideIn var(--transition-slow) ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.toast--success {
+  background-color: var(--color-success-surface);
+  color: var(--color-success-text);
+  border: 1px solid var(--color-success-border);
+}
+
+.toast--error {
+  background-color: var(--color-error-surface);
+  color: var(--color-error-text);
+  border: 1px solid var(--color-error-border);
+}
+
+.toast--info {
+  background-color: var(--color-info-surface);
+  color: var(--color-info-text);
+  border: 1px solid var(--color-info-border);
+}
+
+.toast__message {
+  flex: 1;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+}
+
+.toast__actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.toast__action-btn {
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: inherit;
+  transition: background-color var(--transition-fast);
+  min-height: 32px;
+}
+
+.toast__action-btn:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.toast__action-btn:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.toast__close-btn {
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  font-size: var(--font-size-xl);
+  line-height: 1;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+}
+
+.toast__close-btn:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.toast__close-btn:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

@@ -1,0 +1,265 @@
+/* Главный контейнер приложения */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 85% -10%, rgb(0 102 255 / 0.08), transparent 34rem),
+    var(--color-background-subtle);
+}
+
+.app-main {
+  flex: 1;
+  max-width: var(--container-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--container-padding);
+}
+
+.workflow-progress {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.workflow-progress__step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  min-height: 40px;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.workflow-progress__step.is-active {
+  color: var(--color-brand-primary);
+}
+
+.workflow-progress__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: var(--font-size-xs);
+}
+
+.app-main > .card {
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* Двухколоночная разметка */
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--spacing-6);
+  align-items: start;
+}
+
+.app-layout__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.app-layout__sidebar {
+  position: relative;
+}
+
+/* Сетка для форм */
+.form-grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.form-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+/* Таблица заказа */
+.order-table-wrapper {
+  overflow-x: auto;
+  margin: var(--spacing-lg) 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.order-table thead {
+  background-color: var(--color-background-subtle);
+}
+
+.order-table th {
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.order-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.order-table tbody tr:hover {
+  background-color: var(--color-background-hover);
+}
+
+.order-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.order-table tfoot {
+  background-color: var(--color-background-subtle);
+  font-weight: var(--font-weight-semibold);
+}
+
+.order-table tfoot td {
+  padding: var(--spacing-md);
+  border-top: 2px solid var(--color-border);
+  border-bottom: none;
+}
+
+/* Числовые колонки */
+.order-table .col-number {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Загрузка и состояния */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  color: var(--color-text-secondary);
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-border);
+  border-top-color: var(--color-brand-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.empty-state-image {
+  max-width: 200px;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.6;
+}
+
+.empty-state-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-state-description {
+  font-size: var(--font-size-base);
+  max-width: 400px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app-layout__sidebar {
+    order: -1;
+  }
+
+  .form-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .workflow-progress {
+    gap: 0;
+  }
+
+  .workflow-progress__step {
+    flex-direction: column;
+    gap: 2px;
+    font-size: var(--font-size-xs);
+  }
+
+  .app-main > .card {
+    border-radius: var(--radius-lg);
+  }
+
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  .order-table {
+    font-size: var(--font-size-xs);
+  }
+
+  .order-table th,
+  .order-table td {
+    padding: var(--spacing-sm);
+  }
+}
